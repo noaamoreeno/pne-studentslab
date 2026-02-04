@@ -7,5 +7,5 @@ def fibosum(n):
         b = a - b
     return sum
 
-print("The sum of first 5 fibonacci terms is:", fibosum(5))
-print("The sum of first 10 fibonacci terms is:", fibosum(10))
+print("The sum of first 5 fibonacci terms is: ", fibosum(5))
+print("The sum of first 10 fibonacci terms is: ", fibosum(10))
