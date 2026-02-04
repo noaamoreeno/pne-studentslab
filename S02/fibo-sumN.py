@@ -1,7 +1,7 @@
 def fibosum(n):
     a, b = 0, 1
     sum = 0
-    for i in range(n):
+    for i in range(n + 1):
         sum += a
         a = a + b
         b = a - b
