@@ -26,7 +26,7 @@ def count_bases(sequence):
             bases[base]+=1
     return bases
 
-if __name__ == "__main__":
+if __name__ == "__main__": #important
     sequence = input("Introduce the sequence: ")
     print("Length:", len(sequence))
 
