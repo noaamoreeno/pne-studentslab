@@ -1,6 +1,5 @@
 lines = ["AGTACACTGGT", "ACCAGTGTACT", "ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG"]
 
-
 def count_bases():
     for sequence in lines:
         info = {"Length": len(sequence), "A": 0, "C": 0, "G": 0, "T": 0}
