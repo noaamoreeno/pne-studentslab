@@ -15,7 +15,6 @@ def count_bases1():
             g += 1
         if base == "T":
             t += 1
-
     print("A:", a)
     print("C:", c)
     print("G:", g)
