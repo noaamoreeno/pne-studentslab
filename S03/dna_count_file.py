@@ -9,7 +9,6 @@ f = open("dna.txt", "r") #r means we are reading
 #Here we put the code
 lines = f.readlines()
 f.close() #If you forget to put the close function the file could corrupt when working in other terminals
-
 #another way of opening files
 with open("dna.txt", "r") as f: #with this you don't need to use the close function
     lines = f.readlines()
