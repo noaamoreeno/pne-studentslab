@@ -1,3 +1,5 @@
 The error occurs in t3, when t3 = 2 * (t0 / t1), in result 3, the function g(c,d) computes 3-3 and then uses that value as a denominator
 This raises a division by zero error
 This error can be corrected by using a try and except ZeroDivisionError
+This will happen anytime c and d of function r take the same value
+That's why results 1, 3 and 4 are properly computed
