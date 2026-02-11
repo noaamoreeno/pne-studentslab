@@ -1,11 +1,3 @@
-#Write a program that prints:
-# The total length of the string
-# The first 5 characters
-# The last 3 characters
-# The string converted to lowercase
-# How many times the substring "ATC" appears
-# The string with all occurrences of "T" replaced by "U" (DNA to RNA transcription)
-
 dna = "ATGCGATCGATCGATCGATCGA"
 
 def main():

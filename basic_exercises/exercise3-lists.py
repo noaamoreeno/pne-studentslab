@@ -20,4 +20,5 @@ def main():
     print("Average:", avg())
     print("Days above 17:", higher())
     print("Sorted:", sorted(temperatures))
+
 main()
