@@ -10,8 +10,8 @@ f = open("dna.txt", "r") #r means we are reading
 lines = f.readlines()
 f.close() #If you forget to put the close function the file could corrupt when working in other terminals
 #another way of opening files
-with open("dna.txt", "r") as f: #with this you don't need to use the close function
-    lines = f.readlines()
+#with open("dna.txt", "r") as f: #with this you don't need to use the close function
+    #lines = f.readlines()
 
 total_number = 0
 bases = {"A": 0, "C": 0, "G": 0, "T": 0}
@@ -19,8 +19,9 @@ bases = {"A": 0, "C": 0, "G": 0, "T": 0}
 for sequence in lines:
     sequence = sequence.strip() #Remove spaces and newline characters at the end of the string
     total_number += len(sequence)
-
     result = count_bases(sequence)
+    for key in result:
+        bases[key] += result[key]
 
 print("Total number of bases:", total_number)
 
