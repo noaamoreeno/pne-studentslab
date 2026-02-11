@@ -27,5 +27,3 @@ print("Total number of bases:", total_number)
 
 for base, count in bases.items():
     print(f'{base}:{count}')
-
-

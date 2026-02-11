@@ -31,5 +31,6 @@ if __name__ == "__main__": #important
     print("Length:", len(sequence))
 
     result = count_bases(sequence)
+
     for base, count in result.items():
         print(f"{base}:{count}")
