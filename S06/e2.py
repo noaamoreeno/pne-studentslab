@@ -14,6 +14,7 @@ def print_seqs(seq_list):
     for index, seq in enumerate(seq_list):
         print(f"Sequence {index}: (Length: {len(seq.strbases)}) {seq}")
 
+
 # Example
 seq_list = [Seq("ACT"), Seq("GATA"), Seq("CAGATA")]
 print_seqs(seq_list)
