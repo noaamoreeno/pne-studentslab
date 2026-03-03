@@ -32,5 +32,12 @@ class Seq:
             bases[base] += 1
         return bases
 
+    def reverse(self):
+        if self.strbases == "NULL":
+            return "NULL"
+        elif self.strbases == "ERROR":
+            return "ERROR"
+        return str(self.strbases)[::-1]
+
     def __str__(self):
         return self.strbases
