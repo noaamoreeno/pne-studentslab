@@ -19,16 +19,10 @@ class Seq:
         self.length = len(strbases)
         print("New sequence created !")
 
+    def count_base(self,base):
+        if self.strbases in ("NULL", "ERROR"):
+            return 0
+        return self.strbases.count(base)
+
     def __str__(self):
         return self.strbases
-
-def print_seqs(seq_list, color):
-    for i, seq in enumerate(seq_list):
-        print(f"Sequence{i}: (Length {seq.length}) {seq}")
-
-def generate_seqs(pattern, number):
-    seqs = []
-    for i in range (1, number+1):
-        new_pattern = pattern * i
-        seqs.append(Seq(new_pattern))
-    return seqs
