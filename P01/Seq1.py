@@ -39,5 +39,16 @@ class Seq:
             return "ERROR"
         return str(self.strbases)[::-1]
 
+    def complement(self):
+        complement = {"A": "T", "C": "G", "G": "C", "T": "A"}
+        if self.strbases == "NULL":
+            return "NULL"
+        elif self.strbases == "ERROR":
+            return "ERROR"
+        return "".join([complement[b] for b in self.strbases])
+
+
+
+
     def __str__(self):
         return self.strbases
