@@ -24,5 +24,13 @@ class Seq:
             return 0
         return self.strbases.count(base)
 
+    def count(self):
+        bases = {"A": 0, "C": 0, "G": 0, "T": 0}
+        if self.strbases in ("NULL", "ERROR"):
+            return bases
+        for base in self.strbases:
+            bases[base] += 1
+        return bases
+
     def __str__(self):
         return self.strbases
