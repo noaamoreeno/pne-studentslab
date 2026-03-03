@@ -1,17 +1,13 @@
-from Client0 import Client
+from Seq1 import Seq
 
-PRACTICE = 2
-EXERCISE = 1
+PRACTICE = 1
+EXERCISE = 3
 
-print(f"-----| Practice {PRACTICE}, Exercise {EXERCISE} |------")
+print(f"---- | Practice {PRACTICE} | Exercise {EXERCISE} |----")
+s1 = Seq()
+s2 = Seq("ACTGA")
+s3 = Seq("ACTXXGA")
 
-IP = "10.77.135.166"
-PORT = 8080
-
-c = Client(IP, PORT)
-
-print(c)
-
-print("Sending a message to the server...")
-response = c.talk("Testing!!!")
-print(f"Response: {response}")
+print(f"Sequence 1: {s1}")
+print(f"Sequence 2: {s2}")
+print(f"Sequence 3: {s3}")
