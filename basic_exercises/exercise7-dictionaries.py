@@ -10,12 +10,19 @@ for i in student["grades"].values():
     count += i
     avg = round(count / len(student["grades"]), 2)
 
+def subject_grade_pairs(student):
+    grades = student["grades"]
+    for subject, grade in grades.items():
+        print(f"{subject}: {grade}")
 
 
 def main():
-    print("Name:", student["Name"])
+    print("Name:", student["name"])
     print("Number of subjets:", len(student["subjects"]))
     print("Enrolled in PNE:", "PNE" in student["subjects"])
     print("Databases grade:", student["grades"]["Databases"])
     print("Average grade: ", avg)
+    print("Subject grades:")
+    subject_grade_pairs(student)
 
+main()

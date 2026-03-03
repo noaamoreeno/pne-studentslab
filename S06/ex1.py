@@ -7,17 +7,13 @@ class Seq:
                 self.strbases = "Error"
                 print("Bases not valid")
                 return
-
         self.strbases = strbases
-        self.length = len(strbases)
         print("New sequence created !")
 
     def __str__(self):
         return self.strbases
 
-def print_seqs(seq_list):
-    for i, seq in enumerate(seq_list):
-        print(f"Sequence{i}: (Length {seq.length}) {seq}")
-
-seq_list = [Seq("ACT"), Seq("GATA"), Seq("CAGATA")]
-print_seqs(seq_list)
+s1 = Seq("ACCTGC")
+s2 = Seq("Hello? Am I a valid sequence?")
+print(f"Sequence 1: {s1}")
+print(f"Sequence 2: {s2}")

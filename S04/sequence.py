@@ -1,11 +1,10 @@
 from pathlib import Path
 
-# -- Constant with the new of the file to open
 FILENAME = "sequences/ADA.txt"
 
-# -- Open and read the file
 file_contents = Path(FILENAME).read_text()
 
-body = (file_contents.split("\n")[1::])
-sequence = "".join(body).replace("\n", "")
-print("Total number of ADA bases:", len(sequence))
+sequence_list = (file_contents.split("\n"))[1::]
+sequence = "".join(sequence_list)
+
+print("Number of basis of ADA Human Gene:", len(sequence))
