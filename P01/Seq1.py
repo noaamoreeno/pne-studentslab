@@ -10,8 +10,9 @@ class Seq:
 
         for base in strbases:
             if base not in valid_bases:
-                self.strbases = "Error"
-                print("Bases not valid")
+                self.strbases = "ERROR"
+                self.length = 0
+                print("INVALID sequence!")
                 return
 
         self.strbases = strbases
