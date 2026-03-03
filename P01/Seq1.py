@@ -1,3 +1,5 @@
+from pathlib import Path
+
 class Seq:
     def __init__(self, strbases=None):
         valid_bases = "ACGT"
@@ -46,6 +48,13 @@ class Seq:
         elif self.strbases == "ERROR":
             return "ERROR"
         return "".join([complement[b] for b in self.strbases])
+
+    def read_fasta(self, filename):
+        file_contents = Path(filename).read_text()
+        seq_lines = file_contents.split("\n")[1:]
+        seq_str = "".join(seq_lines)
+        self.__init__(seq_str)
+
 
 
 
