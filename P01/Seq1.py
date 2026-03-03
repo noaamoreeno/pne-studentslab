@@ -1,6 +1,12 @@
 class Seq:
-    def __init__(self, strbases):
+    def __init__(self, strbases=None):
         valid_bases = "ACGT"
+
+        if strbases is None:
+            self.strbases = "NULL"
+            self.length = 0
+            print("NULL sequence created")
+            return
 
         for base in strbases:
             if base not in valid_bases:
