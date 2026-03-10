@@ -56,8 +56,7 @@ while True:
         msg = msg_raw.decode()
 
         # -- Print the received message
-        print(f"Message received: ", end = " ")
-        termcolor.cprint(msg, "green")
+        termcolor.cprint(f"Message received: {msg}", "green")
 
         # -- Send a response message to the client
         response = f"Echo: {msg}"
