@@ -14,14 +14,12 @@ class Client:
     def talk(self, msg):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        try:
-            s.connect((self.ip, self.port))
+        s.connect((self.ip, self.port))
 
-            s.send(msg.encode())
+        s.send(str.encode(msg))
 
-            response = s.recv(2048).decode("utf-8")
+        response = s.recv(2048).decode("utf-8")
 
-        finally:
-            s.close()
+        s.close()
 
         return response
