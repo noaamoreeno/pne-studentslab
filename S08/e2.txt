@@ -1,0 +1,8 @@
+"192.168.124.179, self, 0.020 ms, 0.017 ms..."
+"212.128.255.129, f-l3208-pc01, 0.215 ms, 0.295 ms....."
+"8.8.8.8, Google, 2.43 ms, 3.01 ms"
+"10.1.128.39, Mobile, 262 ms, 78.7 ms"
+"www.urjc.es, 1.72 ms, 1.89 ms"
+"github.com, 35.2 ms, 34.9 ms"
+"wikipedia.org, 17.2 ms, 16.5 ms"
+"newdomain.com.au, 2.81 ms, 3.14 ms"
