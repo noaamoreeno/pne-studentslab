@@ -21,7 +21,6 @@ while conn_number < 5:
 
     try:
         (cs, client_ip_port) = ls.accept()
-
         conn_number += 1
         clients.append(client_ip_port)
 
