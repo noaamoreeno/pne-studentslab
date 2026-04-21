@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>DNA Server</h1>
+
+<form action="/ping">
+    <button type="submit">Ping</button>
+</form>
+
+<form action="/get">
+    Sequence (0-4): <input type="text" name="n">
+    <button type="submit">Get</button>
+</form>
+
+<form action="/gene">
+    Gene name: <input type="text" name="name">
+    <button type="submit">Get Gene</button>
+</form>
+
+<form action="/operation">
+    Sequence: <input type="text" name="seq"><br>
+    Operation:
+    <select name="op">
+        <option value="info">INFO</option>
+        <option value="comp">COMP</option>
+        <option value="rev">REV</option>
+    </select>
+    <button type="submit">Execute</button>
+</form>
+
+</body>
+</html>
