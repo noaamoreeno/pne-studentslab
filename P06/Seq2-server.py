@@ -1,13 +1,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import urllib.parse
 
-SEQUENCES = [
-    "ATCG",
-    "GGTA",
-    "CCTA",
-    "TATA",
-    "GCGC"
-]
+SEQUENCES = ["ATCG", "GGTA", "CCTA", "TATA", "GCGC"]
 
 GENES = {
     "U5": "ATCGATCG",
@@ -17,19 +11,25 @@ GENES = {
     "RNU6_269P": "GATTACA"
 }
 
+def read_html(path):
+    file = open(path)
+    content = file.read()
+    file.close()
+    return content
+
 
 def complement(seq):
-    comp = ""
-    for base in seq:
-        if base == "A":
-            comp += "T"
-        elif base == "T":
-            comp += "A"
-        elif base == "C":
-            comp += "G"
-        elif base == "G":
-            comp += "C"
-    return comp
+    result = ""
+    for b in seq:
+        if b == "A":
+            result += "T"
+        elif b == "T":
+            result += "A"
+        elif b == "C":
+            result += "G"
+        elif b == "G":
+            result += "C"
+    return result
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -41,38 +41,27 @@ class Handler(BaseHTTPRequestHandler):
         params = urllib.parse.parse_qs(parsed.query)
 
         if path == "/":
-            file = open("html/index.html")
+            content = read_html("html/index.html")
 
         elif path == "/ping":
-            content = "<h1>Server alive</h1><a href='/'>Back</a>"
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            self.wfile.write(content.encode())
-            return
+            content = read_html("html/ping.html")
 
         elif path == "/get":
-            n = int(params.get("n", [0])[0])
-            seq = SEQUENCES[n]
-            content = f"<h1>Sequence: {seq}</h1><a href='/'>Back</a>"
-
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            self.wfile.write(content.encode())
-            return
+            try:
+                n = int(params.get("n", [0])[0])
+                seq = SEQUENCES[n]
+                content = read_html("html/get.html").replace("{{sequence}}", seq)
+            except:
+                content = read_html("html/error.html")
 
         elif path == "/gene":
             name = params.get("name", [""])[0]
-            seq = GENES.get(name, "Not found")
+            seq = GENES.get(name)
 
-            content = f"<h1>{name}: {seq}</h1><a href='/'>Back</a>"
-
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            self.wfile.write(content.encode())
-            return
+            if seq:
+                content = read_html("html/gene.html").replace("{{gene}}", seq)
+            else:
+                content = read_html("html/error.html")
 
         elif path == "/operation":
             seq = params.get("seq", [""])[0]
@@ -80,41 +69,25 @@ class Handler(BaseHTTPRequestHandler):
 
             if op == "info":
                 total = len(seq)
-                a = seq.count("A")
-                c = seq.count("C")
-                g = seq.count("G")
-                t = seq.count("T")
-
-                content = f"""
-                <p>Sequence: {seq}</p>
-                <p>Total length: {total}</p>
-                <p>A: {a}</p>
-                <p>C: {c}</p>
-                <p>G: {g}</p>
-                <p>T: {t}</p>
-                <a href='/'>Back</a>
-                """
-
+                result = f"""
+Sequence: {seq}<br>
+Total length: {total}<br>
+A: {seq.count("A")}<br>
+C: {seq.count("C")}<br>
+G: {seq.count("G")}<br>
+T: {seq.count("T")}
+"""
             elif op == "comp":
-                content = f"<p>{complement(seq)}</p><a href='/'>Back</a>"
-
+                result = complement(seq)
             elif op == "rev":
-                content = f"<p>{seq[::-1]}</p><a href='/'>Back</a>"
-
+                result = seq[::-1]
             else:
-                content = "Invalid operation"
+                result = "Invalid operation"
 
-            self.send_response(200)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            self.wfile.write(content.encode())
-            return
+            content = read_html("html/operation.html").replace("{{result}}", result)
 
         else:
-            file = open("html/error.html")
-
-        content = file.read()
-        file.close()
+            content = read_html("html/error.html")
 
         self.send_response(200)
         self.send_header("Content-type", "text/html")
