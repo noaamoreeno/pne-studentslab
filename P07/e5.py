@@ -2,6 +2,7 @@ import json
 import http.client
 from e2 import genes
 from seq import Seq
+import termcolor
 
 SERVER = "rest.ensembl.org"
 
@@ -18,11 +19,7 @@ for gene in genes:
 
     response = conn.getresponse()
 
-    if response.status != 200:
-        print(f"Error with {gene_name}: {response.status}")
-        continue
-
-    data = response.read().decode()
+    data = response.read().decode("utf-8")
     result = json.loads(data)
 
     sequence = result["seq"]
@@ -31,18 +28,20 @@ for gene in genes:
     seq = Seq(sequence)
 
     print("\n" + "="*40)
-    print("Gene:", gene_name)
-    print("Identifier:", identifier)
-    print("Description:", description)
+    termcolor.cprint("Gene", "yellow", end=": ")
+    print(gene_name)
+    termcolor.cprint("Description", "yellow", end=": ")
+    print(description)
 
-    print("Length:", seq.length())
+    termcolor.cprint("Total Length", "yellow", end=": ")
+    print(seq.length())
 
-    print("Base counts:")
-    for base, count in seq.base_count().items():
-        print(base, ":", count)
+    counts = seq.base_count()
+    percen = seq.base_percentage()
 
-    print("Base percentages:")
-    for base, pct in seq.base_percentage().items():
-        print(base, ":", round(pct, 2), "%")
+    for base, count in counts.items():
+        pct = percen[base]
+        termcolor.cprint(base, "blue", end=": ")
+        print(f"{count} ({pct:.2f}%)")
 
     print("Most frequent base:", seq.most_frequent_base())
