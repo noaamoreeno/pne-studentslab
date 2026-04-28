@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome!</title>
+
+  <style>
+    body {
+      background-color: red;
+      font-family: serif;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: bold;
+      color: black;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: bold;
+      color: black;
+    }
+
+    h3 {
+      font-size: 24px;
+      color: black;
+    }
+
+    form {
+      font-size: 18px;
+      color: black;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      font-size: 16px;
+      border: 2px solid purple;
+      border-radius: 4px;
+      padding: 4px;
+    }
+
+    input[type="submit"] {
+      font-size: 18px;
+      margin-top: 10px;
+      background-color: plum;
+      color: black;
+      cursor: pointer;
+      border: 2px solid purple;
+      border-radius: 4px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: violet;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Browsing Human and Vertebrates genome</h1>
+
+  <h2>BASIC Level Services</h2>
+
+  <h3>1) List of species in the genome database</h3>
+  <form action="/listSpecies" method="get">
+    Limit: <input type="text" name="limit">
+    <br>
+    <input type="submit" value="Send">
+  </form>
+
+  <h3>2) Information about the karyotype</h3>
+  <form action="/karyotype" method="get">
+    Select the species: <input type="text" name="species">
+    <br>
+    <input type="submit" value="Send">
+  </form>
+
+  <h3>3) Chromosome Length</h3>
+  <form action="/chromosomeLength" method="get">
+    Select the species: <input type="text" name="species">
+    <br><br>
+    Select a chromosome: <input type="text" name="chromo">
+    <br>
+    <input type="submit" value="Send">
+  </form>
+</body>
+</html>
