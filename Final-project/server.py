@@ -40,7 +40,6 @@ def build_page(title, body):
 
 # ── Error page helper ───────────────────────────────────────────────────────
 def error_page(msg):
-    """Builds a page that shows an error message."""
     return build_page("Error", f"<h1>Error</h1><p>{msg}</p>")
 
 # ── Main HTML page (served at /) ────────────────────────────────────────────
@@ -117,10 +116,6 @@ MAIN_PAGE = """<!DOCTYPE html>
 class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
-        # Split the URL into path and query string
-        # e.g. "/chromosomeLength?species=mouse&chromo=18"
-        #   → path   = "/chromosomeLength"
-        #   → params = {"species": ["mouse"], "chromo": ["18"]}
         parsed = urlparse(self.path)
         path   = parsed.path
         params = parse_qs(parsed.query)
@@ -131,7 +126,6 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
         # ── /listSpecies ────────────────────────────────────────────────
         elif path == "/listSpecies":
-            # Call the Ensembl API to get all species
             data = ensembl_request("/info/species?content-type=application/json")
             if data is None:
                 self._send_html(error_page("Could not reach Ensembl API."), 503)
