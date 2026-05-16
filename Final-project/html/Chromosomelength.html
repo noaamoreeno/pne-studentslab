@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chromosome Length</title>
+  <style>
+    body { background-color: #9b59b6; font-family: serif; padding: 20px; }
+    h1 { font-size: 36px; font-weight: bold; }
+    p  { font-size: 18px; }
+    a  { color: #2c0040; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Chromosome {{ context.chromo }} – {{ context.species }}</h1>
+  {% if context.length is not none %}
+    <p>Length: <strong>{{ "{:,}".format(context.length) }}</strong> bp</p>
+  {% else %}
+    <p>Chromosome not found.</p>
+  {% endif %}
+  <br><a href="/">&#8592; Back to main page</a>
+</body>
+</html>

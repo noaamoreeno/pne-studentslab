@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gene Information</title>
+  <style>
+    body { background-color: #9b59b6; font-family: serif; padding: 20px; }
+    h1 { font-size: 36px; font-weight: bold; }
+    a  { color: #2c0040; font-size: 16px; }
+    table { border-collapse: collapse; font-size: 18px; margin-top: 10px; }
+    th, td { border: 1px solid #2c0040; padding: 8px 16px; }
+    th { background-color: plum; }
+  </style>
+</head>
+<body>
+  <h1>Gene Information: {{ context.gene_name }}</h1>
+  <table>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>Ensembl ID</td><td>{{ context.gene_id }}</td></tr>
+    <tr><td>Chromosome</td><td>{{ context.chromo }}</td></tr>
+    <tr><td>Start</td><td>{{ "{:,}".format(context.start) }}</td></tr>
+    <tr><td>End</td><td>{{ "{:,}".format(context.end) }}</td></tr>
+    <tr><td>Length</td><td>{{ "{:,}".format(context.length) }} bp</td></tr>
+  </table>
+  <br><a href="/">&#8592; Back to main page</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gene Calculations</title>
+  <style>
+    body { background-color: #9b59b6; font-family: serif; padding: 20px; }
+    h1 { font-size: 36px; font-weight: bold; }
+    p  { font-size: 18px; }
+    a  { color: #2c0040; font-size: 16px; }
+    table { border-collapse: collapse; font-size: 18px; margin-top: 10px; }
+    th, td { border: 1px solid #2c0040; padding: 8px 16px; }
+    th { background-color: plum; }
+  </style>
+</head>
+<body>
+  <h1>Gene Calculations: {{ context.gene }} ({{ context.gene_id }})</h1>
+  <p>Total length: <strong>{{ "{:,}".format(context.length) }}</strong> bp</p>
+  <table>
+    <tr><th>Base</th><th>Percentage</th></tr>
+    {% for base, pct in context.percentages.items() %}
+      <tr><td>{{ base }}</td><td>{{ "%.2f" | format(pct) }} %</td></tr>
+    {% endfor %}
+  </table>
+  <br><a href="/">&#8592; Back to main page</a>
+</body>
+</html>

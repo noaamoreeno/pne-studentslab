@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gene Lookup</title>
+  <style>
+    body { background-color: #9b59b6; font-family: serif; padding: 20px; }
+    h1 { font-size: 36px; font-weight: bold; }
+    p  { font-size: 18px; }
+    a  { color: #2c0040; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Gene Lookup: {{ context.gene }}</h1>
+  <p>Ensembl stable ID: <strong>{{ context.gene_id }}</strong></p>
+  <br><a href="/">&#8592; Back to main page</a>
+</body>
+</html>

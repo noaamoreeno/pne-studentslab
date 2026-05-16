@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gene List</title>
+  <style>
+    body { background-color: #9b59b6; font-family: serif; padding: 20px; }
+    h1 { font-size: 36px; font-weight: bold; }
+    ul { font-size: 18px; }
+    p  { font-size: 18px; }
+    a  { color: #2c0040; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Genes in {{ context.chromo }}:{{ "{:,}".format(context.start) }}–{{ "{:,}".format(context.end) }}</h1>
+  {% if context.genes %}
+    <p>{{ context.genes | length }} gene(s) found:</p>
+    <ul>
+      {% for g in context.genes %}
+        <li>{{ g }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No genes found in this region.</p>
+  {% endif %}
+  <br><a href="/">&#8592; Back to main page</a>
+</body>
+</html>
