@@ -2,83 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Genome Browser</title>
   <style>
-    body { background-color: #9b59b6; font-family: serif; padding: 20px; }
-    h1 { font-size: 42px; font-weight: bold; color: black; }
-    h2 { font-size: 32px; font-weight: bold; color: black; }
-    h3 { font-size: 24px; color: black; }
-    form { font-size: 18px; color: black; margin-bottom: 30px; }
     input[type="text"] {
-      font-size: 16px; border: 2px solid purple;
-      border-radius: 4px; padding: 4px;
     }
     input[type="submit"] {
-      font-size: 18px; margin-top: 10px; background-color: plum;
-      color: black; cursor: pointer; border: 2px solid purple; border-radius: 4px;
     }
-    input[type="submit"]:hover { background-color: violet; }
   </style>
 </head>
 <body>
-  <h1>Browsing Human and Vertebrates Genome</h1>
 
   <h2>BASIC Level Services</h2>
 
   <h3>1) List of species in the genome database</h3>
   <form action="/listSpecies" method="get">
-    Limit : <input type="text" name="limit" placeholder="(optional)">
-    <br><input type="submit" value="Send">
   </form>
 
   <h3>2) Information about the karyotype</h3>
   <form action="/karyotype" method="get">
-    Select the species : <input type="text" name="species" placeholder="e.g. human">
-    <br><input type="submit" value="Send">
   </form>
 
   <h3>3) Chromosome Length</h3>
   <form action="/chromosomeLength" method="get">
-    Select the species : <input type="text" name="species" placeholder="e.g. human">
     <br><br>
-    Select a chromosome : <input type="text" name="chromo" placeholder="e.g. 1">
-    <br><input type="submit" value="Send">
-  </form>
-
-  <h2>MEDIUM Level Services (Human Genes)</h2>
-
-  <h3>4) Gene Lookup – Ensembl stable ID</h3>
-  <form action="/geneLookup" method="get">
-    Gene name : <input type="text" name="gene" placeholder="e.g. FRAT1">
-    <br><input type="submit" value="Send">
-  </form>
-
-  <h3>5) Gene Sequence</h3>
-  <form action="/geneSeq" method="get">
-    Gene name : <input type="text" name="gene" placeholder="e.g. FRAT1">
-    <br><input type="submit" value="Send">
-  </form>
-
-  <h3>6) Gene Information</h3>
-  <form action="/geneInfo" method="get">
-    Gene name : <input type="text" name="gene" placeholder="e.g. FRAT1">
-    <br><input type="submit" value="Send">
-  </form>
-
-  <h3>7) Gene Calculations (length &amp; base percentages)</h3>
-  <form action="/geneCalc" method="get">
-    Gene name : <input type="text" name="gene" placeholder="e.g. FRAT1">
-    <br><input type="submit" value="Send">
-  </form>
-
-  <h3>8) Gene List in Chromosomal Region</h3>
-  <form action="/geneList" method="get">
-    Chromosome : <input type="text" name="chromo" placeholder="e.g. 9">
-    <br><br>
-    Start position : <input type="text" name="start" placeholder="e.g. 22125500">
-    <br><br>
-    End position : <input type="text" name="end" placeholder="e.g. 22136000">
-    <br><input type="submit" value="Send">
   </form>
 </body>
 </html>
