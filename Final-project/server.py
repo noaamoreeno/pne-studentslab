@@ -10,7 +10,7 @@ PORT = 8080
 
 # ── Jinja2 helper ────────────────────────────────
 def read_html_file(filename):
-    contents = Path("html/" + filename).read_text()
+    contents = Path("html/" + filename).read_text(encoding="utf-8")
     contents = j.Template(contents)
     return contents
 
